@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "spider-scrape"
+version = "0.0.1rc1"
+description = ""
+authors = ["Philip May <philip@may.la>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "spider_scrape"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
