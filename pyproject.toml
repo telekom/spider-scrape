@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "spider-scrape"
-version = "0.0.1rc1"
+version = "0.0.1rc3"
 description = ""
 authors = ["Philip May <philip@may.la>"]
 license = "MIT"
