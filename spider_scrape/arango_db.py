@@ -5,6 +5,7 @@
 
 from contextlib import closing
 from typing import Sequence, Union
+
 from arango import ArangoClient
 from attr import define, field
 

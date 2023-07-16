@@ -5,8 +5,10 @@
 """Scraper package."""
 
 from abc import ABC, abstractmethod
-from typing import Optional, Sequence
+from typing import Sequence
+
 from attr import define
+
 from spider_scrape.db import DataManager
 
 
