@@ -29,7 +29,7 @@ class ArangoDataManager(DataManager):
         connection = arango_client.db(self.db_name, username=self.username, password=self.password)
         return connection
 
-    def load_batch(self):
+    def load_batch(self) -> Sequence:
         with closing(self._get_arango_client()) as arango_client:
             connection = self._get_connection(arango_client)
             bind_vars = {"@coll": self.collection_name, "attribute": self.attribute_name}
@@ -42,7 +42,7 @@ class ArangoDataManager(DataManager):
                 batch = closing_cursor.batch()
         return batch
 
-    def save_batch(self, batch):
+    def save_batch(self, batch: Sequence):
         with closing(self._get_arango_client()) as arango_client:
             connection = self._get_connection(arango_client)
             collection = connection.collection(self.collection_name)

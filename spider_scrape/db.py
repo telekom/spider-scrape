@@ -5,6 +5,7 @@
 """DB tools package."""
 
 from abc import ABC, abstractmethod
+from typing import Sequence
 
 from attr import define
 
@@ -12,9 +13,9 @@ from attr import define
 @define
 class DataManager(ABC):
     @abstractmethod
-    def load_batch(self):
+    def load_batch(self) -> Sequence:
         pass
 
     @abstractmethod
-    def save_batch(self, batch):
+    def save_batch(self, batch: Sequence):
         pass
