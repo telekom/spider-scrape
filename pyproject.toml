@@ -7,9 +7,25 @@ license = "MIT"
 readme = "README.md"
 packages = [{include = "spider_scrape"}]
 
-[tool.poetry.dependencies]
-python = "^3.8"
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+beautifulsoup4 = "^4"
+python-arango = {version = "^7", optional = true}
+attrs = "^23"
+
+[tool.poetry.group.lint]
+optional = true
+
+[tool.poetry.group.lint.dependencies]
+black = {version = "^23"}
+
+[tool.poetry.extras]
+arango = ["python-arango"]
+
+[tool.black]
+line-length = 119
+target-versions = ["py38", "py39", "py310", "py311"]
