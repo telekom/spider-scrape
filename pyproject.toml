@@ -21,7 +21,8 @@ attrs = "^23"
 optional = true
 
 [tool.poetry.group.lint.dependencies]
-black = {version = "^23"}
+black = {version = "*"}
+ruff = {version = "*"}
 
 [tool.poetry.extras]
 arango = ["python-arango"]
@@ -29,3 +30,11 @@ arango = ["python-arango"]
 [tool.black]
 line-length = 119
 target-versions = ["py38", "py39", "py310", "py311"]
+
+[tool.ruff]
+select = [
+  "E",  # pycodestyle
+  "F",  # pyflakes
+  "I",  # isort
+]
+line-length = 119
