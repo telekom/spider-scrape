@@ -13,9 +13,11 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-beautifulsoup4 = "^4"
-python-arango = {version = "^7", optional = true}
-attrs = "^23"
+beautifulsoup4 = "*"
+python-arango = {version = "*", optional = true}
+attrs = "*"
+markdownify = "*"
+mdformat = "*"
 
 [tool.poetry.group.lint]
 optional = true
@@ -38,3 +40,5 @@ select = [
   "I",  # isort
 ]
 line-length = 119
+fixable = ["I"]
+target-version = "py38"
