@@ -1,0 +1,29 @@
+name: PyPI Upload
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # https://github.com/actions/checkout
+    - uses: actions/checkout@v3
+
+    # https://github.com/actions/setup-python
+    - uses: actions/setup-python@v4
+      with:
+        python-version: "3.8"
+
+    - name: Install
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        poetry install --all-extras
+
+    - name: Build and publish
+      env:
+        POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
+      run: |
+        poetry publish --build
