@@ -3,6 +3,7 @@ test-src := tests
 
 check:
 	poetry run black $(src) $(test-src) --check --diff
+	poetry run mypy --install-types --non-interactive $(src)
 	poetry run ruff $(src) $(test-src)
 
 format:

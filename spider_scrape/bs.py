@@ -8,15 +8,15 @@ import re
 from typing import Optional
 
 import mdformat
-from markdownify import MarkdownConverter, markdownify
+from markdownify import MarkdownConverter, markdownify  # type: ignore
 
 
 def extract_text(soup, join_str=None) -> str:
     if join_str is None:
         join_str = " "
     texts = [text for text in soup.stripped_strings]
-    texts = join_str.join(texts)
-    return texts
+    result: str = join_str.join(texts)
+    return result
 
 
 def normalize_text(text) -> str:
