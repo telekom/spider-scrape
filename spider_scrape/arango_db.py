@@ -33,9 +33,13 @@ class ArangoDataManager(DataManager):
     def load_batch(self) -> Sequence:
         with closing(self.get_arango_client()) as arango_client:
             connection = self.get_connection(arango_client)
-            bind_vars = {"@coll": self.collection_name, "attribute": self.attribute_name}
+            bind_vars = {
+                "@coll": self.collection_name,
+                "attribute": self.attribute_name,
+                "batch_size": self.batch_size,
+            }
             cursor = connection.aql.execute(
-                "FOR doc IN @@coll FILTER !HAS(doc, @attribute) RETURN doc",
+                "FOR doc IN @@coll FILTER !HAS(doc, @attribute) LIMIT @batch_size RETURN doc",
                 bind_vars=bind_vars,
                 batch_size=self.batch_size,
             )
