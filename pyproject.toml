@@ -20,8 +20,9 @@ markdownify = "*"
 mdformat = "*"
 
 [tool.poetry.group.lint.dependencies]
-black = {version = "*"}
-ruff = {version = "*"}
+black = "*"
+ruff = "*"
+mypy = "*"
 
 [tool.poetry.extras]
 arango = ["python-arango"]
