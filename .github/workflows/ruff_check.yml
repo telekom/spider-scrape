@@ -35,6 +35,5 @@ jobs:
         curl -sSL https://install.python-poetry.org | python3 -
         poetry install --all-extras
 
-    - name: Check with mypy
+    - name: Check with Ruff
       run: poetry run ruff ${{ env.src }}
-      #run: poetry run mypy --install-types --non-interactive ${{ env.src }} ${{ env.other-src }}
