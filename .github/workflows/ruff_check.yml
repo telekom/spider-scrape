@@ -1,0 +1,40 @@
+name: Ruff Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # at 4 am
+    - cron:  '0 4 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  checks:
+    env:
+      src: "spider_scrape"
+      # other-src: "tests setup.py docs"
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # https://github.com/actions/checkout
+    - uses: actions/checkout@v3
+
+    # https://github.com/actions/setup-python
+    - uses: actions/setup-python@v4
+      with:
+        python-version: "3.8"
+
+    - name: Install
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        poetry install --all-extras
+
+    - name: Check with mypy
+      run: poetry run ruff ${{ env.src }}
+      #run: poetry run mypy --install-types --non-interactive ${{ env.src }} ${{ env.other-src }}
