@@ -17,7 +17,7 @@ jobs:
   checks:
     env:
       src: "spider_scrape"
-      # other-src: "tests setup.py docs"
+      other_src: "tests"
 
     runs-on: ubuntu-latest
 
@@ -36,5 +36,4 @@ jobs:
         poetry install --all-extras
 
     - name: Check with mypy
-      run: poetry run mypy --install-types --non-interactive ${{ env.src }}
-      #run: poetry run mypy --install-types --non-interactive ${{ env.src }} ${{ env.other-src }}
+      run: poetry run mypy --install-types --non-interactive ${{ env.src }} ${{ env.other_src }}
