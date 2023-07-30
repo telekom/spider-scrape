@@ -24,6 +24,9 @@ black = "*"
 ruff = "*"
 mypy = "*"
 
+[tool.poetry.group.test.dependencies]
+pytest = "*"
+
 [tool.poetry.extras]
 arango = ["python-arango"]
 
