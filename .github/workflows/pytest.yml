@@ -33,7 +33,7 @@ jobs:
     - name: Install
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
-        poetry install --all-extras
+        poetry install --all-extras --only test
 
     - name: Test with pytest
       run: poetry run pytest tests
