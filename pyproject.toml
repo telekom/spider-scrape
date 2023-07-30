@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "spider-scrape"
 version = "0.0.1rc4"
-description = ""
+description = "Website Scrape Tool"
 authors = ["Philip May <philip@may.la>"]
 license = "MIT"
 readme = "README.md"
@@ -18,9 +18,6 @@ python-arango = {version = "*", optional = true}
 attrs = "*"
 markdownify = "*"
 mdformat = "*"
-
-[tool.poetry.group.lint]
-optional = true
 
 [tool.poetry.group.lint.dependencies]
 black = {version = "*"}
