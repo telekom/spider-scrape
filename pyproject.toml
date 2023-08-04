@@ -42,7 +42,11 @@ select = [
   "E",  # pycodestyle
   "F",  # pyflakes
   "I",  # isort
+  "CPY001",  # flake8-copyright
 ]
 line-length = 119
 fixable = ["I"]
 target-version = "py38"
+
+[tool.ruff.flake8-copyright]
+notice-rgx = "(# Copyright \\(c\\) \\d{4} .*\\n)+# This software is distributed under the terms of the MIT license\\n# which is available at https://opensource.org/licenses/MIT\\n\\n"
