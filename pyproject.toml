@@ -5,6 +5,8 @@ description = "Website Scrape Tool"
 authors = ["Philip May <philip@may.la>"]
 license = "MIT"
 readme = "README.md"
+repository = "https://github.com/telekom/spider-scrape"
+keywords = ["scrape", "web", "html"]
 packages = [{include = "spider_scrape"}]
 
 [build-system]
