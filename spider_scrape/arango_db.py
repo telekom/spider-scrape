@@ -4,9 +4,9 @@
 """ArangoDB tools package."""
 
 from contextlib import closing
-from typing import Sequence, Union
+from typing import Optional, Sequence, Union
 
-from arango import ArangoClient
+from arango import ArangoClient  # type: ignore
 from attr import define, field
 
 from spider_scrape.db import DataManager
@@ -21,6 +21,7 @@ class ArangoDataManager(DataManager):
     collection_name: str
     attribute_name: str
     batch_size: int = field(default=20)
+    aql_overwrite: Optional[str] = field(default=None)
 
     def get_arango_client(self):
         arango_client = ArangoClient(hosts=self.hosts)
@@ -38,8 +39,12 @@ class ArangoDataManager(DataManager):
                 "attribute": self.attribute_name,
                 "batch_size": self.batch_size,
             }
+            if self.aql_overwrite is None:
+                aql = "FOR doc IN @@coll FILTER !HAS(doc, @attribute) LIMIT @batch_size RETURN doc"
+            else:
+                aql = self.aql_overwrite
             cursor = connection.aql.execute(
-                "FOR doc IN @@coll FILTER !HAS(doc, @attribute) LIMIT @batch_size RETURN doc",
+                aql,
                 bind_vars=bind_vars,
                 batch_size=self.batch_size,
             )
