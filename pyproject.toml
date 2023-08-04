@@ -25,6 +25,7 @@ mdformat = "*"
 black = "*"
 ruff = "*"
 mypy = "*"
+mdformat = "*"
 
 [tool.poetry.group.test.dependencies]
 pytest = "*"
