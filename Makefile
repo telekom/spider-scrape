@@ -11,3 +11,6 @@ format:
 	poetry run black $(src) $(test-src)
 	poetry run ruff $(src) $(test-src) --fix
 	poetry run mdformat --number .
+
+install:
+	poetry lock && poetry install --all-extras

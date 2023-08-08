@@ -20,6 +20,7 @@ python-arango = {version = "*", optional = true}
 attrs = "*"
 markdownify = "*"
 mdformat = "*"
+python-dotenv = "*"
 
 [tool.poetry.group.lint.dependencies]
 black = "*"
