@@ -9,6 +9,7 @@ from typing import Optional, Sequence, Union
 
 from arango import ArangoClient
 from attr import define, field
+from dotenv import dotenv_values
 
 from spider_scrape.db import DataManager
 
@@ -23,6 +24,21 @@ class ArangoDataManager(DataManager):
     attribute_name: str
     batch_size: int = field(default=20)
     aql_overwrite: Optional[str] = field(default=None)
+
+    @classmethod
+    def from_config_file(cls, config_file_name, aql_overwrite=None):
+        """Construct ``ArangoDataManager`` from config file."""
+        arango_config = dotenv_values(config_file_name)
+        return cls(
+            hosts=arango_config["hosts"],
+            db_name=arango_config["db_name"],
+            username=arango_config["username"],
+            password=arango_config["password"],
+            collection_name=arango_config["collection_name"],
+            attribute_name=arango_config["attribute_name"],
+            batch_size=int(arango_config["batch_size"]),
+            aql_overwrite=aql_overwrite,
+        )
 
     def get_arango_client(self):
         arango_client = ArangoClient(hosts=self.hosts)
