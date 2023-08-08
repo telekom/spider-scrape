@@ -8,7 +8,7 @@ import re
 from typing import Optional
 
 import mdformat
-from markdownify import MarkdownConverter, markdownify  # type: ignore
+from markdownify import MarkdownConverter, markdownify
 
 
 def extract_text(soup, join_str=None) -> str:

@@ -7,7 +7,7 @@
 from contextlib import closing
 from typing import Optional, Sequence, Union
 
-from arango import ArangoClient  # type: ignore
+from arango import ArangoClient
 from attr import define, field
 
 from spider_scrape.db import DataManager
