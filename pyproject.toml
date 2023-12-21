@@ -36,7 +36,7 @@ arango = ["python-arango"]
 
 [tool.black]
 line-length = 119
-target-versions = ["py38", "py39", "py310", "py311"]
+target-version = ["py38", "py39", "py310", "py311"]
 
 [tool.ruff]
 select = [
