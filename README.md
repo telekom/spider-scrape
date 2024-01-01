@@ -1,5 +1,14 @@
 # Spider-Scrape
 
+**We decided to archive this project and migrate the most important functionality to 
+[MLTB2](https://github.com/telekom/mltb2).**
+
+Here you can find the new tools at mltb2:
+
+- [ArangoDB Tools](https://telekom.github.io/mltb2/api-reference/arangodb.html)
+- [DB Tools](https://telekom.github.io/mltb2/api-reference/db.html)
+- [Beautiful Soup and HTML specific tools](https://telekom.github.io/mltb2/api-reference/bs.html)
+
 ## Licensing
 
 Copyright (c) 2023 Philip May\
